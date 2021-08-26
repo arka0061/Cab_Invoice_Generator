@@ -8,7 +8,7 @@ namespace CabInvoiceTest
         /// UC1 Testing
         /// </summary>
         [Test]
-        public void GivenDistanceAndTimeForNormalRide_WhenAnalyzeFare_ShouldReturnTrue()
+        public void GivenDistanceAndTimeForNormalRide_WhenAnalyzeFare_ShouldReturnFare()
         {
             InvoiceGenerator invoice = new InvoiceGenerator(RideType.NORMAL_RIDE);
             double distance = 5.0;
@@ -91,6 +91,17 @@ namespace CabInvoiceTest
             InvoiceSummary summary = new InvoiceSummary(2, 30.0);
             InvoiceSummary expected = invoice.CalculateFare(rideArray);
             Assert.AreEqual(summary.totalFare, expected.totalFare);
+        }
+        ///UC5-Premium Rides Fare Testing
+        [Test]
+        public void GivenDistanceAndTimeForPremiumRide_WhenAnalyzeFare_ShouldReturnFare()
+        {
+            InvoiceGenerator invoice = new InvoiceGenerator(RideType.PREMIUM_RIDE);
+            double distance = 15.0;
+            int time = 12;
+            double fare = invoice.CalculateFare(distance, time);
+            double expected = 237.0;
+            Assert.AreEqual(expected, fare);
         }
     }
 }

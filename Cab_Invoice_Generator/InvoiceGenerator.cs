@@ -18,7 +18,15 @@ namespace Cab_Invoice_Generator
                 this.MINIMUM_COST_PER_KM = 10;
                 this.COST_PER_TIME = 1;
                 this.MINIMUM_FARE = 5;
-            }           
+            }
+            if (this.type.Equals(RideType.PREMIUM_RIDE))
+
+            {
+                this.MINIMUM_COST_PER_KM = 15;
+                this.COST_PER_TIME = 1;
+                this.MINIMUM_FARE = 20;
+
+            }
         }
         public double CalculateFare(double distance, int time)
 
