@@ -8,8 +8,9 @@ namespace Cab_Invoice_Generator
         {
             Console.WriteLine("Welcome to Cab Invoice Generator!");
             InvoiceGenerator invoiceGenerator = new InvoiceGenerator(RideType.NORMAL_RIDE);
-            double fare = invoiceGenerator.CalculateFare(2.0, 5);
-            Console.WriteLine($"Fare : {fare}");
+            Ride[] rides = { new Ride(2.0, 5), new Ride(6, 10) };
+            InvoiceSummary summary = invoiceGenerator.CalculateFare(rides);
+            Console.WriteLine(summary.totalFare);
         }
     }
 }
